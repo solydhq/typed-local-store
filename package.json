@@ -1,6 +1,6 @@
 {
   "name": "typed-local-store",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A type wrapper for the store api",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,8 +11,12 @@
     "build": "npm run clean-build && tsc -p ./tsconfig.json",
     "prepublish": "npm run build"
   },
-  "keywords": [],
-  "homepage": "https://github.com/jdforsythe/typescript-npm-starter#readme",
+  "keywords": [
+    "typed",
+    "store",
+    "storage"
+  ],
+  "homepage": "https://github.com/gcascio/typed-local-store",
   "author": "Giovanni Cascio <giovanni@maternavis.com>",
   "license": "MIT",
   "dependencies": {},

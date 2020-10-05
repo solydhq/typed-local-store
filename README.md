@@ -1,4 +1,4 @@
-# typed-local-storage
+# typed-local-storage [![Tests Actions Status](https://github.com/gcascio/typed-local-store/workflows/Tests/badge.svg)](https://github.com/gcascio/typed-local-store/actions)
 
 A wrapper to provide type safe access to the localStorage and sessionStorage.
 
