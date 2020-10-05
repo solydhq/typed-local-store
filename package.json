@@ -11,7 +11,11 @@
     "build": "npm run clean-build && tsc -p ./tsconfig.json",
     "prepublish": "npm run build"
   },
-  "keywords": [],
+  "keywords": [
+    "typed",
+    "store",
+    "storage"
+  ],
   "homepage": "https://github.com/jdforsythe/typescript-npm-starter#readme",
   "author": "Giovanni Cascio <giovanni@maternavis.com>",
   "license": "MIT",
