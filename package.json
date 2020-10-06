@@ -1,6 +1,6 @@
 {
   "name": "typed-local-store",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A type wrapper for the store api",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,8 +16,8 @@
     "store",
     "storage"
   ],
-  "homepage": "https://github.com/gcascio/typed-local-store",
-  "author": "Giovanni Cascio <giovanni@maternavis.com>",
+  "homepage": "https://github.com/lynoapp/typed-local-store",
+  "author": "@lynoapp <info@lyno.io>",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
