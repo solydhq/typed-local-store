@@ -15,7 +15,7 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
   private storage: Storage;
 
   constructor(options: TypedStorageOptions = { storage: 'localStorage' }) {
-    this.storage = window[options.storage];
+    this.storage = typeof window !== 'undefined' ? window[options.storage] : global[options.storage];
   }
 
   public length(): number {
