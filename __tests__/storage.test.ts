@@ -229,3 +229,16 @@ describe('TypedStorage set some values and check length', () => {
     typedStorage.clear();
   });
 });
+
+describe('TypedStorage set and retrieve invalid json', () => {
+  it('should correctly set invalid json and retrieve it unparsed', () => {
+    const invalidJson= '{ count: 3 ';
+
+    window.localStorage.setItem('objectValue', invalidJson);
+    expect(typedStorage.getItem('objectValue')).toEqual(invalidJson);
+  });
+
+  it('should clear storage', () => {
+    typedStorage.clear();
+  });
+});
