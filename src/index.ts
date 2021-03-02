@@ -1,3 +1,5 @@
+export type RetrievalMode = 'fail' | 'raw' | 'safe';
+
 export interface ITypedStorage<T> {
   length(): number;
   key<U extends keyof T>(index: number): U;
@@ -6,13 +8,12 @@ export interface ITypedStorage<T> {
   removeItem<U extends keyof T>(key: U): void;
   clear(): void;
 }
-
 export interface TypedStorageOptions {
   storage: 'localStorage' | 'sessionStorage';
 }
 
 export default class TypedStorage<T> implements ITypedStorage<T> {
-  private storage: Storage;
+  private readonly storage: Storage;
 
   constructor(options: TypedStorageOptions = { storage: 'localStorage' }) {
     this.storage = typeof window !== 'undefined' ? window[options.storage] : global[options.storage];
@@ -26,7 +27,7 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
     return this.storage.key(index) as U;
   }
 
-  public getItem<U extends keyof T>(key: U): T[U] | null {
+  public getItem<U extends keyof T>(key: U, retrievalMode: RetrievalMode = 'fail'): T[U] | null {
     const item = this.storage.getItem(key.toString());
 
     if (item === null) {
@@ -35,8 +36,15 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
 
     try {
       return JSON.parse(item) as T[U];
-    } catch {
-      return (item as unknown) as T[U];
+    } catch (error) {
+      switch (retrievalMode) {
+        case 'safe':
+          return null;
+        case 'raw':
+          return (item as unknown) as T[U];
+        default:
+          throw error;
+      }
     }
   }
 

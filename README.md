@@ -49,3 +49,13 @@ The constructor can receive a options object to configure the store.
 ## API
 
 The API of typed-local-store mimics the Storage API except for one exception, the Storage APIs length property is implemented as a method.
+
+### getItem
+
+The `getItem` method has three retrieval modes, whereas `'fail'` is the default mode
+
+| Mode | Description                                                                                      |
+| ---- | ------------------------------------------------------------------------------------------------ |
+| fail | If a something to be restored from the store can not be parsed by `JSON.parse` a error is thrown |
+| raw  | If parsing of the retrieval value fails, the unparsed value is returned                          |
+| safe | If parsing of the retrieval value fails, `null` is returned                                      |
