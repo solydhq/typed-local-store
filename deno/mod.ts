@@ -5,9 +5,10 @@ export interface ITypedStorage<T> {
   key<U extends keyof T>(index: number): U;
   setItem<U extends keyof T>(key: U, value: T[U]): void;
   getItem<U extends keyof T>(key: U): T[U] | null;
-  removeItem<U extends keyof T>(key: U): void;
+  removeItem<U extends keyof T>(key: U, retrievalMode: RetrievalMode): void;
   clear(): void;
 }
+
 export interface TypedStorageOptions {
   storage: 'localStorage' | 'sessionStorage';
 }
