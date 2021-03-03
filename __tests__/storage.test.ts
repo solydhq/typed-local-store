@@ -231,11 +231,37 @@ describe('TypedStorage set some values and check length', () => {
 });
 
 describe('TypedStorage set and retrieve invalid json', () => {
+  it('should correctly set invalid json and fail retrieving it', () => {
+    const invalidJson= '{ count: 3 ';
+
+    window.localStorage.setItem('objectValue', invalidJson);
+    expect(() => typedStorage.getItem('objectValue')).toThrow();
+  });
+
+  it('should clear storage', () => {
+    typedStorage.clear();
+  });
+});
+
+describe('TypedStorage set and retrieve invalid json in raw retrieval mode', () => {
   it('should correctly set invalid json and retrieve it unparsed', () => {
     const invalidJson= '{ count: 3 ';
 
     window.localStorage.setItem('objectValue', invalidJson);
-    expect(typedStorage.getItem('objectValue')).toEqual(invalidJson);
+    expect(typedStorage.getItem('objectValue', 'raw')).toEqual(invalidJson);
+  });
+
+  it('should clear storage', () => {
+    typedStorage.clear();
+  });
+});
+
+describe('TypedStorage set and retrieve invalid json in safe retrieval mode', () => {
+  it('should correctly set invalid json and retrieve null', () => {
+    const invalidJson= '{ count: 3 ';
+
+    window.localStorage.setItem('objectValue', invalidJson);
+    expect(typedStorage.getItem('objectValue', 'safe')).toEqual(null);
   });
 
   it('should clear storage', () => {
