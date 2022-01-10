@@ -18,20 +18,24 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
 
   constructor(options: TypedStorageOptions = { storage: 'localStorage' }) {
     this.storage = typeof window !== 'undefined' ? window[options.storage] : global[options.storage];
+
+    if (!this.storage) {
+      throw Error('Web Storage API not found.');
+    }
   }
 
   public length(): number {
-    return this.storage.length;
+    return this.storage?.length;
   }
 
   public key<U extends keyof T>(index: number): U {
-    return this.storage.key(index) as U;
+    return this.storage?.key(index) as U;
   }
 
   public getItem<U extends keyof T>(key: U, retrievalMode: RetrievalMode = 'fail'): T[U] | null {
-    const item = this.storage.getItem(key.toString());
+    const item = this.storage?.getItem(key.toString());
 
-    if (item === null) {
+    if (item == null) {
       return item;
     }
 
@@ -50,14 +54,14 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
   }
 
   public setItem<U extends keyof T>(key: U, value: T[U]): void {
-    this.storage.setItem(key.toString(), JSON.stringify(value));
+    this.storage?.setItem(key.toString(), JSON.stringify(value));
   }
 
   public removeItem<U extends keyof T>(key: U): void {
-    this.storage.removeItem(key.toString());
+    this.storage?.removeItem(key.toString());
   }
 
   public clear(): void {
-    this.storage.clear();
+    this.storage?.clear();
   }
 }

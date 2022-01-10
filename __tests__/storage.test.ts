@@ -268,3 +268,13 @@ describe('TypedStorage set and retrieve invalid json in safe retrieval mode', ()
     typedStorage.clear();
   });
 });
+
+describe('Initialize TypedStorage with Web Storage API missing', () => {
+  it('should throw exception if Web Storage API is not present', () => {
+    const { localStorage, ...windowWithoutLocalStorage } = { ...window };
+    const windowSpy = jest.spyOn(global, 'window', 'get');
+    windowSpy.mockImplementation(() => windowWithoutLocalStorage as Window & typeof globalThis);
+
+    expect(() => new TypedStorage<Schema>()).toThrowError('Web Storage API not found');
+  });
+});
