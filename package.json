@@ -16,7 +16,7 @@
     "prepublish": "npm run build",
     "prepare": "husky install",
     "predeno": "mkdir -p ./deno",
-    "deno": "cp ./src/index.ts ./deno/mod.ts && cp ./README.md ./deno/ && cp ./CHANGELOG.md ./deno/"
+    "deno": "cp ./src/index.ts ./deno/mod.ts && cp ./src/types.ts ./deno/ && cp ./src/typedStorage.ts ./deno/ && cp ./src/memoryStorage.ts ./deno/ && cp ./README.md ./deno/ && cp ./CHANGELOG.md ./deno/"
   },
   "keywords": [
     "typed",
