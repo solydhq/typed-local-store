@@ -3,8 +3,8 @@ import  TypedStorage from '../src/index';
 const typedStorage = new TypedStorage<{}>();
 
 describe('TypedLocalStorage', () => {
-  it('should expose a length method', () => {
-    expect(typedStorage.length).toBeInstanceOf(Function);
+  it('should expose a length getter', () => {
+    expect(Object.getOwnPropertyDescriptor(Object.getPrototypeOf(typedStorage), 'length')).toBeTruthy();
   });
 
   it('should expose a key method', () => {
