@@ -44,21 +44,21 @@ The API of typed-local-store mimics the [Web Storage API](https://developer.mozi
 
 The constructor can receive a options object to configure the store.
 
-| Property                      | Required | Default        | Description                                                                             |
-| ----------------------------- | -------- | -------------- | --------------------------------------------------------------------------------------- |
-| storage: string               | false    | "localStorage" | Choose the storage type, "localStorage" or "sessionStorage"                             |
-| fallbackStorage: Storage      | false    | undefined      | Provide a fallback storage in case localStorage and or SessionStorage are not available |
-| ignoreMissingStorage: boolean | false    | false          | Prevent error to be thrown when no storage is present.                                  |
+| Property                        | Required | Default          | Description                                                                             |
+| ------------------------------- | -------- | ---------------- | --------------------------------------------------------------------------------------- |
+| `storage: string`               | No       | `'localStorage'` | Choose the storage type, "localStorage" or "sessionStorage"                             |
+| `fallbackStorage: Storage`      | No       | `undefined`      | Provide a fallback storage in case localStorage and or SessionStorage are not available |
+| `ignoreMissingStorage: boolean` | No       | `false`          | Prevent error to be thrown when no storage is present.                                  |
 
 ### getItem
 
 The `getItem` method has three retrieval modes, whereas `'fail'` is the default mode
 
-| Mode | Description                                                                                      |
-| ---- | ------------------------------------------------------------------------------------------------ |
-| fail | If a something to be restored from the store can not be parsed by `JSON.parse` a error is thrown |
-| raw  | If parsing of the retrieval value fails, the unparsed value is returned                          |
-| safe | If parsing of the retrieval value fails, `null` is returned                                      |
+| Mode     | Description                                                                                      |
+| -------- | ------------------------------------------------------------------------------------------------ |
+| `'fail'` | If a something to be restored from the store can not be parsed by `JSON.parse` a error is thrown |
+| `'raw'`  | If parsing of the retrieval value fails, the unparsed value is returned                          |
+| `'safe'` | If parsing of the retrieval value fails, `null` is returned                                      |
 
 ### MemoryStorage
 
