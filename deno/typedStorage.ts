@@ -8,7 +8,8 @@ export default class TypedStorage<T> implements ITypedStorage<T> {
     ignoreMissingStorage = false,
     fallbackStorage = undefined,
   }: TypedStorageOptions = {}) {
-    this.storage = window?.[storage] || global[storage] || fallbackStorage;
+    const browserStorage = typeof window !== 'undefined' && window?.[storage];
+    this.storage = browserStorage || global[storage] || fallbackStorage;
 
     if (!this.storage && !ignoreMissingStorage) {
       throw Error('Web Storage API not found.');
