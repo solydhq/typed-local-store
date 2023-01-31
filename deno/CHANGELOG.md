@@ -1,5 +1,21 @@
 # Changelog
 
+## [v2.0.2](https://github.com/lynoapp/typed-local-store/tree/v2.0.2) (2023-31-01)
+
+[Full Changelog](https://github.com/lynoapp/typed-local-store/compare/v2.0.1...v2.0.2)
+
+### :bug: Bug Fixes
+
+- add missing file endings for deno imports/exports
+
+## [v2.0.1](https://github.com/lynoapp/typed-local-store/tree/v2.0.1) (2022-03-06)
+
+[Full Changelog](https://github.com/lynoapp/typed-local-store/compare/v2.0.0...v2.0.1)
+
+### :bug: Bug Fixes
+
+- assure the presence of the window object before accessing it
+
 ## [v2.0.0](https://github.com/lynoapp/typed-local-store/tree/v2.0.0) (2022-09-05)
 
 [Full Changelog](https://github.com/lynoapp/typed-local-store/compare/v1.1.2...v2.0.0)

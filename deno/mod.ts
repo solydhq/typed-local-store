@@ -1,4 +1,4 @@
-export * from './memoryStorage';
-export * from './types';
+export * from './memoryStorage.ts';
+export * from './types.ts';
 
-export { default } from './typedStorage';
+export { default } from './typedStorage.ts';

@@ -1,4 +1,4 @@
-import { RetrievalMode, ITypedStorage, TypedStorageOptions } from './types';
+import { RetrievalMode, ITypedStorage, TypedStorageOptions } from './types.ts';
 
 export default class TypedStorage<T> implements ITypedStorage<T> {
   private readonly storage: Storage;
